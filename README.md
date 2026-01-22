@@ -5,6 +5,26 @@ PHP와 MySQL을 사용하여 주문(Order) 데이터 조회 및 관리 기능을
 
 ---
 
+## 목차
+
+- [Project Overview](#project-overview)
+- [Project Features](#project-features)
+  - [Data 조회 기능](#data-조회-기능)
+  - [조건 기반 조회](#조건-기반-조회)
+  - [데이터 관리 기능](#데이터-관리-기능)
+- [Tech Stack](#tech-stack)
+- [Project Structure](#project-structure)
+- [Database Configuration](#database-configuration)
+- [Execution Method](#execution-method)
+- [기능 예시/설명](#기능-예시설명)
+- [What I Learned](#what-i-learned)
+- [향후 계획](#향후-계획)
+- [Author](#author)
+- [Note](#note)
+- [깃헙 업로드 순서](#깃헙-업로드-순서)
+
+---
+
 ## Project Overview
 
 이 프로젝트는 공개 Instacart 주문 데이터 구조를 기반으로 다음 목표를 가지고 제작되었습니다.
@@ -82,7 +102,9 @@ order_page/
 ## Database Configuration
 
 ### DB Name
+```
 hmwkdb
+```
 
 ### db.php Example
 
@@ -108,8 +130,9 @@ if(!$con){
 * MySQL Start
 
 ### 프로젝트 이동 경로
-
+```
 C:\xampp\htdocs\order_page\PHP
+```
 
 ### 브라우저 접속
 ```
