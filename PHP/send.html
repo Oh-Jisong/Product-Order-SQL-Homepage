@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>요일/시간 조회</title>
+</head>
+<body>
+  <h1>요일/시간으로 매출(주문-상품) 조회</h1>
+
+  <form method="post" action="receive.php">
+    요일(0~6): <input type="number" name="dow" min="0" max="6" required><br><br>
+    시간(0~23): <input type="number" name="hour" min="0" max="23" required><br><br>
+    <input type="submit" value="조회">
+  </form>
+
+  <br>
+  <a href="main.html">전체 메뉴로</a>
+</body>
+</html>
