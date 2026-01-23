@@ -185,15 +185,12 @@ http://localhost/order_page/PHP/main.html
 
 ## Future Improvements
 
-다중 조건 필터 UI 확장
+- [ ] 다중 조건 필터 UI 확장
+- [ ] AJAX 기반 비동기 페이지 전환
+- [ ] 사용자 Role 분리 (Admin / Viewer)
+- [ ] 로그 기록 테이블 구축
+- [ ] REST API 구조로 확장
 
-AJAX 기반 비동기 페이지 전환
-
-사용자 Role 분리(Admin / Viewer)
-
-로그 기록 테이블 구축
-
-REST API 구조로 확장
 
 ---
 
