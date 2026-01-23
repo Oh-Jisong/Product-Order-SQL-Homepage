@@ -1,82 +1,109 @@
-# Instacart DB Web Practice Project
+<p align="center">
+  <img src="screenshots/banner.png" width="900">
+</p>
 
-PHP와 MySQL을 사용하여 주문(Order) 데이터 조회 및 관리 기능을 구현한 개인 학습용 웹 프로젝트입니다.  
-단순 과제 목적이 아니라 **데이터베이스 설계, SQL 작성, PHP-MySQL 연동 흐름을 직접 학습하기 위해 개인적으로 구현한 실습 프로젝트**입니다.
+<h1 align="center">Instacart DB Web Practice Project</h1>
 
----
+<p align="center">
+  PHP · MySQL 기반 주문 데이터 조회 및 관리 웹 시스템  
+</p>
 
-## 목차
-
-- [Project Overview](#project-overview)
-- [Project Features](#project-features)
-  - [Data 조회 기능](#data-조회-기능)
-  - [조건 기반 조회](#조건-기반-조회)
-  - [데이터 관리 기능](#데이터-관리-기능)
-- [Tech Stack](#tech-stack)
-- [Project Structure](#project-structure)
-- [Database Configuration](#database-configuration)
-- [Execution Method](#execution-method)
-- [기능 예시/설명](#기능-예시설명)
-- [What I Learned](#what-i-learned)
-- [향후 계획](#향후-계획)
-- [Author](#author)
-- [Note](#note)
-- [깃헙 업로드 순서](#깃헙-업로드-순서)
+<p align="center">
+  <img src="https://img.shields.io/badge/PHP-8.x-blue.svg">
+  <img src="https://img.shields.io/badge/MySQL-8.0-orange.svg">
+  <img src="https://img.shields.io/badge/XAMPP-Apache-red.svg">
+  <img src="https://img.shields.io/badge/Status-Active-success.svg">
+</p>
 
 ---
 
 ## Project Overview
 
-이 프로젝트는 공개 Instacart 주문 데이터 구조를 기반으로 다음 목표를 가지고 제작되었습니다.
+본 프로젝트는 **PHP와 MySQL을 활용한 주문(Order) 데이터 조회·관리 웹 시스템**입니다.  
+단순 CRUD 구현이 아닌, **Pagination, 조건 검색, Prepared Statement, 관리자 인증 구조까지 포함한 실무형 구조 학습**을 목표로 제작되었습니다.
 
-- 관계형 데이터베이스 테이블 구조 설계
-- 외래키 기반 데이터 무결성 관리
-- PHP를 이용한 MySQL 연동 실습
-- 웹 페이지 기반 데이터 조회 및 입력 기능 구현
-- 실제 서비스 흐름과 유사한 CRUD 구조 이해
+Instacart 공개 데이터 구조를 참고하여 **실제 Admin Dashboard 형태의 데이터 관리 흐름**을 구현했습니다.
 
 ---
 
-## Project Features
+## Core Features
 
-### Data 조회 기능
+### 데이터 조회 기능
 
 - Aisles 테이블 조회
 - Departments 테이블 조회
 - Orders 테이블 조회
 - Products 테이블 조회
-- 주문 + 상품 + 날짜 기반 통합 조회
+- Order + Product + Date 통합 View 조회
 
 ---
 
-### 조건 기반 조회
+### 조건 기반 필터링
 
-- 요일(Day of Week) + 시간대(Hour) 기반 주문 데이터 조회
-- 특정 Order ID 입력 후 해당 주문 데이터 조회
+- 상품명 부분 검색 (LIKE 검색)
+- 요일(Day of Week) + 시간(Hour) 조건 조회
+- Order ID 기반 단일 주문 조회
+- Pagination 기반 대용량 데이터 분할 처리
 
 ---
 
 ### 데이터 관리 기능
 
-- 신규 주문 데이터 입력
-- Order ID 기반 데이터 수정
+- 신규 주문(order_products) 데이터 입력
+- Order ID 기반 주문 수정
+- 관리자 로그인(Session) 인증 후 관리 기능 접근 제한
+
+---
+
+## UI Preview (Screenshots)
+
+> `screenshots/` 폴더 생성 후 아래 파일명으로 이미지 넣으면 자동 반영됨
+
+### ▶ Main Dashboard
+
+<img src="screenshots/main.png" width="900">
+
+---
+
+### ▶ Aisles 조회 + Pagination + 검색
+
+<img src="screenshots/aisles.png" width="900">
+
+---
+
+### ▶ Orders 조회 화면
+
+<img src="screenshots/orders.png" width="900">
+
+---
+
+### ▶ 관리자 데이터 입력 화면
+
+<img src="screenshots/insert.png" width="900">
 
 ---
 
 ## Tech Stack
 
-- **Backend**: PHP (mysqli)
-- **Database**: MySQL (InnoDB)
-- **Server**: Apache (XAMPP)
-- **Frontend**: HTML (Basic UI)
+| Category | Technology |
+---------|------------
+Backend | PHP (mysqli)
+Database | MySQL (InnoDB)
+Server | Apache (XAMPP)
+Frontend | HTML + Custom CSS UI
+Security | Prepared Statement
+Auth | PHP Session 기반 인증
 
 ---
 
 ## Project Structure
+
 ```bash
 order_page/
 ┣ PHP/
 ┃ ┣ db.php
+┃ ┣ styles.css
+┃ ┣ lib.php
 ┃ ┣ main.html
 ┃ ┣ aisles_select.php
 ┃ ┣ departments_select.php
@@ -90,6 +117,8 @@ order_page/
 ┃ ┣ orders_num.html
 ┃ ┣ orders_num_receive.php
 ┃ ┣ orders_num_update.php
+┃ ┣ admin_login.php
+┃ ┣ logout.php
 ┗ SQL/
 ┣ aisles.sql
 ┣ departments.sql
@@ -99,22 +128,23 @@ order_page/
 ```
 
 ---
+
 ## Database Configuration
 
-### DB Name
+### Database Name
 ```
 hmwkdb
 ```
 
-### db.php Example
 
-```php
+### db.php Example
+```
 <?php
 $con = mysqli_connect("localhost", "root", "", "hmwkdb");
 mysqli_set_charset($con, "utf8");
 
 if(!$con){
-  die("DB 연결 실패: ".mysqli_connect_error());
+  die("DB Connection Failed: ".mysqli_connect_error());
 }
 ?>
 ```
@@ -125,11 +155,10 @@ if(!$con){
 
 ### XAMPP 실행
 
-* Apache Start
+- Apache Start
+- MySQL Start
 
-* MySQL Start
-
-### 프로젝트 이동 경로
+### 프로젝트 위치
 ```
 C:\xampp\htdocs\order_page\PHP
 ```
@@ -141,64 +170,34 @@ http://localhost/order_page/PHP/main.html
 
 ---
 
-## 기능 예시/설명
-
-| 기능             | 설명              |
-| -------------- | --------------- |
-| Aisles 조회      | 상품 진열 카테고리 조회   |
-| Departments 조회 | 상품 부서 정보 조회     |
-| Order 조회       | 주문 상세 정보 확인     |
-| 조건 검색          | 요일/시간 기반 주문 필터링 |
-| 신규 입력          | 주문 데이터 추가       |
-| 수정 기능          | 주문 번호 기반 데이터 수정 |
-
----
-
 ## What I Learned
 
-이 프로젝트를 통해 다음 내용을 직접 구현하며 학습했습니다.
+본 프로젝트를 통해 다음 내용을 직접 구현하며 학습했습니다.
 
-- MySQL 외래키 제약 조건 관리
-- 테이블 간 관계 설계
-- PHP mysqli 함수 활용
-- HTML Form → PHP → DB 데이터 흐름 이해
-- 실무에서 사용하는 CRUD 구조 흐름 이해
-
----
-
-## 향후 계획
-
-1. CSS UI 디자인 적용
-2. Pagination 기능 추가
-3. 검색 필터 UI 개선
-4. Prepared Statement 적용 (보안 강화)
-5. 관리자 로그인 기능 추가
+1. 관계형 데이터베이스 설계 및 외래키 구조 이해
+2. PHP ↔ MySQL 데이터 흐름 처리 구조
+3. Pagination 쿼리 설계 및 OFFSET / LIMIT 활용
+4. Prepared Statement 기반 SQL Injection 방어
+5. 관리자 인증(Session) 기반 권한 제어 구조
+6. Admin Dashboard 형태의 UI 구성 경험
 
 ---
 
-## Author
+## Future Improvements
 
-* PHP + MySQL Database Web Project
-* Localhost 기반 실습 프로젝트
+다중 조건 필터 UI 확장
+
+AJAX 기반 비동기 페이지 전환
+
+사용자 Role 분리(Admin / Viewer)
+
+로그 기록 테이블 구축
+
+REST API 구조로 확장
 
 ---
 
-## Note
+## ⚠ Note
 
-본 프로젝트는 학습 목적의 개인 실습 프로젝트이며  
-상용 서비스 목적이 아닌 데이터베이스 및 백엔드 구조 이해를 목표로 제작되었습니다.
-
----
-
-## 깃헙 업로드 순서
-
-터미널 (order_page 폴더 위치에서)
-
-```bash
-git init
-git add .
-git commit -m "Initial commit - PHP MySQL order management project"
-git branch -M main
-git remote add origin https://github.com/본인아이디/instacart-order-management-php.git
-git push -u origin main
-```
+본 프로젝트는 학습 목적의 개인 실습 프로젝트이며 
+상용 서비스 목적이 아닌 데이터베이스 구조 및 서버 연동 흐름 이해를 목표로 제작되었습니다.
