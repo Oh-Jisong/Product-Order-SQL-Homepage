@@ -56,30 +56,29 @@ Instacart 공개 데이터 구조를 참고하여 **실제 Admin Dashboard 형�
 ---
 
 ## UI Preview (Screenshots)
+<table>
+  <tr>
+    <td align="center"><b>Main Dashboard</b></td>
+    <td align="center"><b>Aisles + Pagination + Search</b></td>
+    <td align="center"><b>Orders View</b></td>
+    <td align="center"><b>Admin order insert View</b></td>
+  </tr>
+  <tr>
+    <td>
+      <img src="screenshots/main.png" width="100%">
+    </td>
+    <td>
+      <img src="screenshots/aisle.png" width="100%">
+    </td>
+    <td>
+      <img src="screenshots/order.png" width="100%">
+    </td>
+    <td>
+      <img src="screenshots/insert.png" width="100%">
+    </td>
+  </tr>
+</table>
 
-> `screenshots/` 폴더 생성 후 아래 파일명으로 이미지 넣으면 자동 반영됨
-
-### ▶ Main Dashboard
-
-<img src="screenshots/main.png" width="900">
-
----
-
-### ▶ Aisles 조회 + Pagination + 검색
-
-<img src="screenshots/aisle.png" width="900">
-
----
-
-### ▶ Orders 조회 화면
-
-<img src="screenshots/order.png" width="900">
-
----
-
-### ▶ 관리자 데이터 입력 화면
-
-<img src="screenshots/insert.png" width="900">
 
 ---
 
@@ -100,6 +99,13 @@ Auth | PHP Session 기반 인증
 
 ```bash
 order_page/
+┣ README.md
+┣ screenshots/
+┃ ┣ banners.png
+┃ ┣ main.png
+┃ ┣ aisle.png
+┃ ┣ order.png
+┃ ┣ insert.png
 ┣ PHP/
 ┃ ┣ db.php
 ┃ ┣ styles.css
@@ -125,6 +131,7 @@ order_page/
 ┣ orders.sql
 ┣ products.sql
 ┣ order_products.sql
+
 ```
 
 ---
