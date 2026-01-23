@@ -67,13 +67,13 @@ Instacart 공개 데이터 구조를 참고하여 **실제 Admin Dashboard 형�
 
 ### ▶ Aisles 조회 + Pagination + 검색
 
-<img src="screenshots/aisles.png" width="900">
+<img src="screenshots/aisle.png" width="900">
 
 ---
 
 ### ▶ Orders 조회 화면
 
-<img src="screenshots/orders.png" width="900">
+<img src="screenshots/order.png" width="900">
 
 ---
 
