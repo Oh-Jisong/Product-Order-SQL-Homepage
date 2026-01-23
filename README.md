@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="screenshots/banner.png" width="900">
+  <img src="screenshots/banners.png" width="900">
 </p>
 
 <h1 align="center">Instacart DB Web Practice Project</h1>
